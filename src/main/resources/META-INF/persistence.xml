@@ -3,6 +3,8 @@
   <persistence-unit name="br.udesc_BakeryHub_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.udesc.bakeryhub.entidades.Padaria</class>
+    <class>br.udesc.bakeryhub.entidades.Despesa</class>
+    <class>br.udesc.bakeryhub.entidades.Produto</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/bd_bakeryhub"/>
       <property name="javax.persistence.jdbc.user" value="Cristian"/>
