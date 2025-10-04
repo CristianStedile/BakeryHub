@@ -12,12 +12,28 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "padaria")
 public class Padaria implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
-    
-    public Padaria(int id, String nome){
+    @OneToMany
+    @JoinColumn(name = "id_despesa")
+    private Despesa despesa;
+    @OneToMany
+    @JoinColumn(name = "id_funcionario")
+    private Funcionario funcionario;
+    @OneToMany
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
+    @OneToMany
+    @JoinColumn(name = "id_venda")
+    private Venda venda;
+    @OneToMany
+    @JoinColumn(name = "id_produto")
+    private Produto produto;
+
+    public Padaria(int id, String nome) {
         this.id = id;
         this.nome = nome;
     }
@@ -42,6 +58,5 @@ public class Padaria implements Serializable {
     public String toString() {
         return "Padaria{" + "id=" + id + ", nome=" + nome + '}';
     }
-    
-    
+
 }

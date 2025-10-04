@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "despesa")
 public class Despesa implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -70,8 +71,5 @@ public class Despesa implements Serializable {
     public String toString() {
         return "Despesa{" + "id=" + id + ", nome=" + nome + ", data=" + data + ", descricao=" + descricao + ", valor=" + valor + '}';
     }
-    
-    
-    
-    
+
 }
