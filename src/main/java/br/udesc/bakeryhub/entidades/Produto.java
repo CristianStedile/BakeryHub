@@ -35,7 +35,12 @@ public class Produto implements Serializable {
     }
 
     public void setId(int id) {
-        this.id = id;
+        if (id > 0) {
+            this.id = id;
+            System.out.println("Sucesso ao setar id do produto!");
+        } else {
+            System.out.println("Erro ao setar id do produto!");
+        }
     }
 
     public int getCodigo() {
@@ -43,7 +48,12 @@ public class Produto implements Serializable {
     }
 
     public void setCodigo(int codigo) {
-        this.codigo = codigo;
+        if (codigo > 0) {
+            this.codigo = codigo;
+            System.out.println("Sucesso ao setar codigo do produto!");
+        } else {
+            System.out.println("Erro ao setar codigo do produto!");
+        }
     }
 
     public String getNome() {
@@ -51,7 +61,12 @@ public class Produto implements Serializable {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (!nome.equals("")) {
+            this.nome = nome;
+            System.out.println("Sucesso ao setar nome do produto!");
+        } else {
+            System.out.println("Erro ao setar nome do produto!");
+        }
     }
 
     public int getEstoque() {
@@ -59,7 +74,12 @@ public class Produto implements Serializable {
     }
 
     public void setEstoque(int estoque) {
-        this.estoque = estoque;
+        if (estoque > 0) {
+            this.estoque = estoque;
+            System.out.println("Sucesso ao setar produto!");
+        } else {
+            System.out.println("Erro ao setar produto!");
+        }
     }
 
     public double getPreco() {
@@ -67,7 +87,12 @@ public class Produto implements Serializable {
     }
 
     public void setPreco(double preco) {
-        this.preco = preco;
+        if (preco > 0) {
+            this.preco = preco;
+            System.out.println("Sucesso ao setar preço do produto!");
+        } else {
+            System.out.println("Erro ao setar preço do produto!");
+        }
     }
 
     public int getPontos() {
@@ -75,7 +100,12 @@ public class Produto implements Serializable {
     }
 
     public void setPontos(int pontos) {
-        this.pontos = pontos;
+        if (pontos > 0) {
+            this.pontos = pontos;
+            System.out.println("Sucesso ao setar pontos do produto!");
+        } else {
+            System.out.println("Erro ao setar pontos do produto!");
+        }
     }
 
     public int getPromocao() {

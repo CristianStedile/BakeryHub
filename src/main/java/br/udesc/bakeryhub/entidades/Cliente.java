@@ -32,7 +32,12 @@ public class Cliente implements Serializable {
     }
 
     public void setId(int id) {
-        this.id = id;
+        if (id > 0) {
+            this.id = id;
+            System.out.println("Sucesso ao setar id do cliente!");
+        } else {
+            System.out.println("Erro ao setar id do cliente!");
+        }
     }
 
     public String getNome() {
@@ -40,7 +45,12 @@ public class Cliente implements Serializable {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (!nome.equals("")) {
+            this.nome = nome;
+            System.out.println("Sucesso ao setar nome do cliente!");
+        } else {
+            System.out.println("Erro ao setar nome do cliente!");
+        }
     }
 
     public String getCpf() {
@@ -48,7 +58,12 @@ public class Cliente implements Serializable {
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+        if (cpf.length() == 14) {
+            this.cpf = cpf;
+            System.out.println("Sucesso ao setar cpf do cliente!");
+        } else {
+            System.out.println("Erro ao setar cpf do cliente!");
+        }
     }
 
     public String getEndereco() {
@@ -56,7 +71,12 @@ public class Cliente implements Serializable {
     }
 
     public void setEndereco(String endereco) {
-        this.endereco = endereco;
+        if (!endereco.equals("")) {
+            this.endereco = endereco;
+            System.out.println("Sucesso ao setar endereço!");
+        } else {
+            System.out.println("Erro ao setar endereço!");
+        }
     }
 
     public int getPontos() {
@@ -64,7 +84,12 @@ public class Cliente implements Serializable {
     }
 
     public void setPontos(int pontos) {
-        this.pontos = pontos;
+        if (pontos >= 0) {
+            this.pontos = pontos;
+            System.out.println("Sucesso ao setar pontos do cliente!");
+        } else {
+            System.out.println("Erro ao setar pontos do cliente");
+        }
     }
 
     @Override

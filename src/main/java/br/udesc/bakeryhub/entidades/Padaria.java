@@ -43,7 +43,12 @@ public class Padaria implements Serializable {
     }
 
     public void setId(int id) {
-        this.id = id;
+        if (id > 0) {
+            this.id = id;
+            System.out.println("Sucesso ao setar id da padaria!");
+        } else {
+            System.out.println("Erro ao setar id da padaria!");
+        }
     }
 
     public String getNome() {
@@ -51,7 +56,12 @@ public class Padaria implements Serializable {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (!nome.equals("")) {
+            this.nome = nome;
+            System.out.println("Sucesso ao setar nome da padaria!");
+        } else {
+            System.out.println("Erro ao setar nome da padaria!");
+        }
     }
 
     @Override
