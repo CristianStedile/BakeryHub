@@ -6,8 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,13 +20,13 @@ public class Venda implements Serializable {
     private String data;
     private String formaPagamento;
     private boolean pago;
-    @OneToMany
+    @ManyToMany
     @JoinColumn(name = "id_produto")
     private Produto produto;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_funcionario")
     private Funcionario funcionario;
 
