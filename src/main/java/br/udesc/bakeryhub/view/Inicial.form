@@ -46,9 +46,7 @@
                   <Component id="jInternalFrame10" max="32767" attributes="0"/>
                   <Component id="jInternalFrame9" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="296" max="-2" attributes="0"/>
-              <Component id="jInternalFrame7" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="548" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="canvas1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -57,24 +55,19 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jInternalFrame3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jInternalFrame8" min="-2" max="-2" attributes="0"/>
-                          <Component id="jInternalFrame10" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jInternalFrame5" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jInternalFrame6" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jInternalFrame9" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="210" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="jInternalFrame7" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jInternalFrame3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jInternalFrame8" min="-2" max="-2" attributes="0"/>
+                  <Component id="jInternalFrame10" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="jInternalFrame5" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jInternalFrame6" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jInternalFrame9" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
@@ -135,30 +128,6 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Container class="javax.swing.JInternalFrame" name="jInternalFrame7">
-      <Properties>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor Padr&#xe3;o"/>
-        </Property>
-        <Property name="frameIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/estoque.png"/>
-        </Property>
-        <Property name="visible" type="boolean" value="true"/>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="212" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="204" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
     <Container class="javax.swing.JInternalFrame" name="jInternalFrame6">
       <Properties>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -213,7 +182,7 @@
           <Color id="Cursor Padr&#xe3;o"/>
         </Property>
         <Property name="frameIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/usuarios.png"/>
+          <Image iconType="3" name="/promocao.png"/>
         </Property>
         <Property name="visible" type="boolean" value="true"/>
       </Properties>
@@ -237,7 +206,7 @@
           <Color id="Cursor Padr&#xe3;o"/>
         </Property>
         <Property name="frameIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/usuarios.png"/>
+          <Image iconType="3" name="/delivery.png"/>
         </Property>
         <Property name="visible" type="boolean" value="true"/>
       </Properties>
