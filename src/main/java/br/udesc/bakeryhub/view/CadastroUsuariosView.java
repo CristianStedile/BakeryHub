@@ -33,7 +33,7 @@ public class CadastroUsuariosView extends javax.swing.JFrame {
 
         canvas1 = new java.awt.Canvas();
         lbTitle = new java.awt.Label();
-        jButton2 = new javax.swing.JButton();
+        btNovoUsuario = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -45,12 +45,12 @@ public class CadastroUsuariosView extends javax.swing.JFrame {
         lbTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lbTitle.setText("Usuários");
 
-        jButton2.setBackground(new java.awt.Color(0, 204, 255));
-        jButton2.setText("+ Novo Usuário");
-        jButton2.setToolTipText("");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btNovoUsuario.setBackground(new java.awt.Color(0, 204, 255));
+        btNovoUsuario.setText("+ Novo Usuário");
+        btNovoUsuario.setToolTipText("");
+        btNovoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btNovoUsuarioActionPerformed(evt);
             }
         });
 
@@ -83,7 +83,7 @@ public class CadastroUsuariosView extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbTitle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(btNovoUsuario, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(133, 133, 133))
         );
@@ -93,7 +93,7 @@ public class CadastroUsuariosView extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
-                .addComponent(jButton2)
+                .addComponent(btNovoUsuario)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -105,9 +105,9 @@ public class CadastroUsuariosView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btNovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btNovoUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,8 +135,8 @@ public class CadastroUsuariosView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btNovoUsuario;
     private java.awt.Canvas canvas1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private java.awt.Label lbTitle;
