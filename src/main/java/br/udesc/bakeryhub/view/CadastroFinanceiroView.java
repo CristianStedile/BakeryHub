@@ -33,7 +33,7 @@ public class CadastroFinanceiroView extends javax.swing.JFrame {
 
         canvas1 = new java.awt.Canvas();
         lbTitle = new java.awt.Label();
-        jButton2 = new javax.swing.JButton();
+        btNovaPromocao = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -45,13 +45,13 @@ public class CadastroFinanceiroView extends javax.swing.JFrame {
         lbTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lbTitle.setText("Financeiro");
 
-        jButton2.setBackground(new java.awt.Color(0, 204, 255));
-        jButton2.setText("+ Nova Promoção");
-        jButton2.setToolTipText("");
-        jButton2.setActionCommand("+ Nova Transação");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btNovaPromocao.setBackground(new java.awt.Color(0, 204, 255));
+        btNovaPromocao.setText("+ Nova Promoção");
+        btNovaPromocao.setToolTipText("");
+        btNovaPromocao.setActionCommand("+ Nova Transação");
+        btNovaPromocao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btNovaPromocaoActionPerformed(evt);
             }
         });
 
@@ -84,7 +84,7 @@ public class CadastroFinanceiroView extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbTitle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(btNovaPromocao, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(133, 133, 133))
         );
@@ -94,7 +94,7 @@ public class CadastroFinanceiroView extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
-                .addComponent(jButton2)
+                .addComponent(btNovaPromocao)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -106,9 +106,9 @@ public class CadastroFinanceiroView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btNovaPromocaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovaPromocaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btNovaPromocaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,8 +136,8 @@ public class CadastroFinanceiroView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btNovaPromocao;
     private java.awt.Canvas canvas1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private java.awt.Label lbTitle;
