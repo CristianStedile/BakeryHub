@@ -18,9 +18,12 @@ public class Despesa implements Serializable {
     private String data;
     private String descricao;
     private double valor;
+    
+    public Despesa(){
+    
+    }
 
-    public Despesa(int id, String nome, String data, String descricao, double valor) {
-        this.id = id;
+    public Despesa(String nome, String data, String descricao, double valor) {
         this.nome = nome;
         this.data = data;
         this.descricao = descricao;

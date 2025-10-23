@@ -14,15 +14,18 @@ public class Produto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private int codigo;
+    private String codigo;
     private String nome;
     private int estoque;
     private double preco;
     private int pontos;
     private int promocao;
+    
+    public Produto(){
+    
+    }
 
-    public Produto(int id, int codigo, String nome, int estoque, double preco, int pontos) {
-        this.id = id;
+    public Produto(String codigo, String nome, int estoque, double preco, int pontos) {
         this.codigo = codigo;
         this.nome = nome;
         this.estoque = estoque;
@@ -43,12 +46,12 @@ public class Produto implements Serializable {
         }
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
-        if (codigo > 0) {
+    public void setCodigo(String codigo) {
+        if (!codigo.equals("")) {
             this.codigo = codigo;
             System.out.println("Sucesso ao setar codigo do produto!");
         } else {
@@ -83,7 +86,11 @@ public class Produto implements Serializable {
     }
 
     public double getPreco() {
-        return preco;
+        if(getPromocao() > 0){
+            return preco-(promocao*preco);
+        }else{
+            return preco;
+        }
     }
 
     public void setPreco(double preco) {
@@ -113,7 +120,12 @@ public class Produto implements Serializable {
     }
 
     public void setPromocao(int promocao) {
-        this.promocao = promocao;
+        if(promocao > 0){
+            this.promocao = promocao;
+            System.out.println("Sucesso ao setar promoção!");
+        }else{
+            System.out.println("Erro ao setar promoção!");
+        }
     }
 
     @Override

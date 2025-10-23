@@ -19,11 +19,14 @@ public class Cliente implements Serializable {
     private String endereco;
     private int pontos;
 
-    public Cliente(int id, String nome, String cpf, String endereco, int pontos) {
-        this.id = id;
+    public Cliente() {
+
+    }
+
+    public Cliente(String nome, String cpf, String endereco, int pontos) {
         this.nome = nome;
-        this.cpf = cpf;
         this.endereco = endereco;
+        this.cpf = cpf;
         this.pontos = pontos;
     }
 
@@ -32,12 +35,7 @@ public class Cliente implements Serializable {
     }
 
     public void setId(int id) {
-        if (id > 0) {
-            this.id = id;
-            System.out.println("Sucesso ao setar id do cliente!");
-        } else {
-            System.out.println("Erro ao setar id do cliente!");
-        }
+        this.id = id;
     }
 
     public String getNome() {
@@ -45,12 +43,7 @@ public class Cliente implements Serializable {
     }
 
     public void setNome(String nome) {
-        if (!nome.equals("")) {
-            this.nome = nome;
-            System.out.println("Sucesso ao setar nome do cliente!");
-        } else {
-            System.out.println("Erro ao setar nome do cliente!");
-        }
+        this.nome = nome;
     }
 
     public String getCpf() {
@@ -58,12 +51,7 @@ public class Cliente implements Serializable {
     }
 
     public void setCpf(String cpf) {
-        if (cpf.length() == 14) {
-            this.cpf = cpf;
-            System.out.println("Sucesso ao setar cpf do cliente!");
-        } else {
-            System.out.println("Erro ao setar cpf do cliente!");
-        }
+        this.cpf = cpf;
     }
 
     public String getEndereco() {
@@ -71,12 +59,7 @@ public class Cliente implements Serializable {
     }
 
     public void setEndereco(String endereco) {
-        if (!endereco.equals("")) {
-            this.endereco = endereco;
-            System.out.println("Sucesso ao setar endereço!");
-        } else {
-            System.out.println("Erro ao setar endereço!");
-        }
+        this.endereco = endereco;
     }
 
     public int getPontos() {

@@ -1,6 +1,7 @@
 package br.udesc.bakeryhub.entidades;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,17 +15,27 @@ public class Funcionario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String nome;
+    private String cpf;
+    private String endereco;
     private String senha;
     private String login;
-    private String tipo;
-    private String codigoRecuperação;
+    private String cargo;
+    @Column(name = "codigo_recuperacao")
+    private String codigoRecuperacao;
 
-    public Funcionario(int id, String senha, String login, String tipo, String codigoRecuperação) {
-        this.id = id;
+    public Funcionario() {
+
+    }
+
+    public Funcionario(String nome, String cpf, String endereco, String login, String senha, String codigoRecuperacao, String cargo) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.cpf = cpf;
         this.senha = senha;
         this.login = login;
-        this.tipo = tipo;
-        this.codigoRecuperação = codigoRecuperação;
+        this.cargo = cargo;
+        this.codigoRecuperacao = codigoRecuperacao;
     }
 
     public int getId() {
@@ -33,6 +44,30 @@ public class Funcionario implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getSenha() {
@@ -51,25 +86,25 @@ public class Funcionario implements Serializable {
         this.login = login;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getCargo() {
+        return cargo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
-    public String getCodigoRecuperação() {
-        return codigoRecuperação;
+    public String getCodigoRecuperacao() {
+        return codigoRecuperacao;
     }
 
-    public void setCodigoRecuperação(String codigoRecuperação) {
-        this.codigoRecuperação = codigoRecuperação;
+    public void setCodigoRecuperacao(String codigoRecuperação) {
+        this.codigoRecuperacao = codigoRecuperação;
     }
 
     @Override
     public String toString() {
-        return "Funcionario{" + "id=" + id + ", senha=" + senha + ", login=" + login + ", tipo=" + tipo + ", codigoRecupera\u00e7\u00e3o=" + codigoRecuperação + '}';
+        return "Funcionario{" + "id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", endereco=" + endereco + ", senha=" + senha + ", login=" + login + ", cargo=" + cargo + ", codigoRecuperacao=" + codigoRecuperacao + '}';
     }
 
 }

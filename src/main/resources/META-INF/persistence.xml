@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence           http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-  <persistence-unit name="br.udesc_BakeryHub_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="BakeryHubPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>br.udesc.bakeryhub.entidades.Padaria</class>
-    <class>br.udesc.bakeryhub.entidades.Despesa</class>
-    <class>br.udesc.bakeryhub.entidades.Produto</class>
     <class>br.udesc.bakeryhub.entidades.Cliente</class>
-    <class>br.udesc.bakeryhub.entidades.Venda</class>
+    <class>br.udesc.bakeryhub.entidades.Despesa</class>
     <class>br.udesc.bakeryhub.entidades.Funcionario</class>
+    <class>br.udesc.bakeryhub.entidades.ItemVenda</class>
+    <class>br.udesc.bakeryhub.entidades.Padaria</class>
+    <class>br.udesc.bakeryhub.entidades.Produto</class>
+    <class>br.udesc.bakeryhub.entidades.Venda</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/bd_bakeryhub"/>
-      <property name="javax.persistence.jdbc.user" value="Cristian"/>
-      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bakeryhub?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="12224002Ss*"/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
