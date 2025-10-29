@@ -43,7 +43,12 @@ public class Cliente implements Serializable {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (!nome.equals("")) {
+            this.nome = nome;
+            System.out.println("Sucesso ao setar nome do cliente!");
+        } else {
+            System.out.println("Erro ao setar nome do cliente!");
+        }
     }
 
     public String getCpf() {
@@ -51,7 +56,12 @@ public class Cliente implements Serializable {
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+        if (!cpf.equals("")) {
+            this.cpf = cpf;
+            System.out.println("Sucesso ao setar cpf do cliente!");
+        } else {
+            System.out.println("Erro ao setar cpf do cliente!");
+        }      
     }
 
     public String getEndereco() {
@@ -59,7 +69,12 @@ public class Cliente implements Serializable {
     }
 
     public void setEndereco(String endereco) {
-        this.endereco = endereco;
+        if (!endereco.equals("")) {
+            this.endereco = endereco;
+            System.out.println("Sucesso ao setar endereço do cliente!");
+        } else {
+            System.out.println("Erro ao setar endereço do cliente!");
+        }  
     }
 
     public int getPontos() {

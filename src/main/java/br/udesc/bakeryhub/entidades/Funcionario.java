@@ -51,7 +51,12 @@ public class Funcionario implements Serializable {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (!nome.equals("")) {
+            this.nome = nome;
+            System.out.println("Sucesso ao setar nome do funcionário!");
+        } else {
+            System.out.println("Erro ao setar nome do funcionário!");
+        }
     }
 
     public String getCpf() {
@@ -59,7 +64,12 @@ public class Funcionario implements Serializable {
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+        if (!cpf.equals("")) {
+            this.cpf = cpf;
+            System.out.println("Sucesso ao setar cpf do funcionário!");
+        } else {
+            System.out.println("Erro ao setar cpf do funcionário!");
+        }
     }
 
     public String getEndereco() {
@@ -67,7 +77,12 @@ public class Funcionario implements Serializable {
     }
 
     public void setEndereco(String endereco) {
-        this.endereco = endereco;
+        if (!endereco.equals("")) {
+            this.endereco = endereco;
+            System.out.println("Sucesso ao setar endereço do funcionário!");
+        } else {
+            System.out.println("Erro ao setar endereço do funcionário!");
+        }
     }
 
     public String getSenha() {
@@ -75,7 +90,12 @@ public class Funcionario implements Serializable {
     }
 
     public void setSenha(String senha) {
-        this.senha = senha;
+        if (!senha.equals("")) {
+            this.senha = senha;
+            System.out.println("Sucesso ao setar senha do funcionário!");
+        } else {
+            System.out.println("Erro ao setar senha do funcionário!");
+        }
     }
 
     public String getLogin() {
@@ -83,7 +103,12 @@ public class Funcionario implements Serializable {
     }
 
     public void setLogin(String login) {
-        this.login = login;
+        if (!login.equals("")) {
+            this.login = login;
+            System.out.println("Sucesso ao setar login do funcionário!");
+        } else {
+            System.out.println("Erro ao setar login do funcionário!");
+        }
     }
 
     public String getCargo() {
@@ -91,7 +116,12 @@ public class Funcionario implements Serializable {
     }
 
     public void setCargo(String cargo) {
-        this.cargo = cargo;
+        if (!cargo.equals("")) {
+            this.cargo = cargo;
+            System.out.println("Sucesso ao setar cargo do cliente!");
+        } else {
+            System.out.println("Erro ao setar cargo do cliente!");
+        }
     }
 
     public String getCodigoRecuperacao() {
@@ -99,7 +129,12 @@ public class Funcionario implements Serializable {
     }
 
     public void setCodigoRecuperacao(String codigoRecuperação) {
-        this.codigoRecuperacao = codigoRecuperação;
+        if (!codigoRecuperação.equals("")) {
+            this.codigoRecuperacao = codigoRecuperação;
+            System.out.println("Sucesso ao setar código de recuperação do cliente!");
+        } else {
+            System.out.println("Erro ao setar código de recuperação do cliente!");
+        }
     }
 
     @Override

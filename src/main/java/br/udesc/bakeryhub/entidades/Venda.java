@@ -51,7 +51,12 @@ public class Venda implements Serializable {
     }
 
     public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+        if (cliente != null) {
+            this.cliente = cliente;
+            System.out.println("Sucesso ao setar cliente!");
+        } else {
+            System.out.println("Erro ao setar cliente!");
+        }
     }
 
     public Funcionario getFuncionario() {
@@ -59,7 +64,12 @@ public class Venda implements Serializable {
     }
 
     public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
+        if (funcionario != null) {
+            this.funcionario = funcionario;
+            System.out.println("Sucesso ao setar funcionário!");
+        } else {
+            System.out.println("Erro ao setar funcionário!");
+        }
     }
 
     public void addItem(ItemVenda iv) {
@@ -87,7 +97,12 @@ public class Venda implements Serializable {
     }
 
     public void setValor(double valor) {
-        this.valor = valor;
+        if (valor >= 0) {
+            this.valor = valor;
+            System.out.println("Sucesso ao setar valor da venda!");
+        } else {
+            System.out.println("Erro ao setar valor da venda!");
+        }
     }
 
     public int getId() {

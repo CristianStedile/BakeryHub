@@ -210,47 +210,51 @@ public class ControlVenda {
                     f = fun;
                 }
             }
-            
+
             String dataTexto = cadVendaView.tfData.getText();
             DateTimeFormatter formatoEntrada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate data = LocalDate.parse(dataTexto, formatoEntrada);
             String formaPagamento = String.valueOf(cadVendaView.cbFormaPagamento.getSelectedItem());
             double valor = calcularValorTotal();
-            Venda v = new Venda(String.valueOf(data), formaPagamento, valor, c, f);
-            if (formaPagamento != "Pontos") {
-                for (ItemVenda iv : modelVendaProdutos.getItens()) {
-                    iv.setVenda(v);
-                    v.addItem(iv);
-                }
-                if (daoVenda.inserir(v)) {
-                    c.setPontos(c.getPontos() + calcularPontos());
-                    daoCliente.editar(c);
-                    modelVendaProdutos.limpar();
-                    JOptionPane.showMessageDialog(null, "Sucesso ao cadastrar venda! O cliente ganhou: " + calcularPontos() + " pontos!");
-                    limpar();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Erro ao cadastrar venda!");
-                }
-            } else if (c.getPontos() >= calcularCustoPontos()) {
-                for (ItemVenda iv : modelVendaProdutos.getItens()) {
-                    iv.setVenda(v);
-                    v.addItem(iv);
-                }
-                if (daoVenda.inserir(v)) {
+            if (c != null && f != null) {
+                Venda v = new Venda(String.valueOf(data), formaPagamento, valor, c, f);
+                if (formaPagamento != "Pontos") {
                     for (ItemVenda iv : modelVendaProdutos.getItens()) {
                         iv.setVenda(v);
                         v.addItem(iv);
                     }
-                    c.setPontos(c.getPontos() - calcularCustoPontos());
-                    daoCliente.editar(c);
-                    JOptionPane.showMessageDialog(null, "Sucesso ao cadastrar venda!");
-                    limpar();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Erro ao cadastrar venda!");
+                    if (daoVenda.inserir(v)) {
+                        c.setPontos(c.getPontos() + calcularPontos());
+                        daoCliente.editar(c);
+                        modelVendaProdutos.limpar();
+                        JOptionPane.showMessageDialog(null, "Sucesso ao cadastrar venda! O cliente ganhou: " + calcularPontos() + " pontos!");
+                        limpar();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Erro ao cadastrar venda!");
+                    }
+                } else if (c.getPontos() >= calcularCustoPontos()) {
+                    for (ItemVenda iv : modelVendaProdutos.getItens()) {
+                        iv.setVenda(v);
+                        v.addItem(iv);
+                    }
+                    if (daoVenda.inserir(v)) {
+                        for (ItemVenda iv : modelVendaProdutos.getItens()) {
+                            iv.setVenda(v);
+                            v.addItem(iv);
+                        }
+                        c.setPontos(c.getPontos() - calcularCustoPontos());
+                        daoCliente.editar(c);
+                        JOptionPane.showMessageDialog(null, "Sucesso ao cadastrar venda!");
+                        limpar();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Erro ao cadastrar venda!");
 
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Você não possui pontos suficientes");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Você não possui pontos suficientes");
+                JOptionPane.showMessageDialog(null, "O cliente e/ou funcioncionário estão vazios!");
             }
         } else {
             Cliente c = null;
@@ -265,23 +269,27 @@ public class ControlVenda {
                     f = fun;
                 }
             }
-            vendaSelecionada.setCliente(c);
-            vendaSelecionada.setFuncionario(f);
-            String dataTexto = cadVendaView.tfData.getText();
-            DateTimeFormatter formatoEntrada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate data = LocalDate.parse(dataTexto, formatoEntrada);
-            vendaSelecionada.setData(String.valueOf(data));
-            vendaSelecionada.setFormaPagamento(String.valueOf(cadVendaView.cbFormaPagamento.getSelectedItem()));
-            if (JOptionPane.showConfirmDialog(null, "Deseja mesmo editar o produto?") == JOptionPane.YES_OPTION) {
-                if (daoVenda.editar(vendaSelecionada)) {
-                    JOptionPane.showMessageDialog(null, "Sucesso ao editar produto!");
-                    vendaSelecionada = null;
-                    limpar();
-                    cadVendaView.setVisible(false);
-                    consVendasView.setVisible(true);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Erro ao editar produto!");
+            if (c != null && f != null) {
+                vendaSelecionada.setCliente(c);
+                vendaSelecionada.setFuncionario(f);
+                String dataTexto = cadVendaView.tfData.getText();
+                DateTimeFormatter formatoEntrada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                LocalDate data = LocalDate.parse(dataTexto, formatoEntrada);
+                vendaSelecionada.setData(String.valueOf(data));
+                vendaSelecionada.setFormaPagamento(String.valueOf(cadVendaView.cbFormaPagamento.getSelectedItem()));
+                if (JOptionPane.showConfirmDialog(null, "Deseja mesmo editar o produto?") == JOptionPane.YES_OPTION) {
+                    if (daoVenda.editar(vendaSelecionada)) {
+                        JOptionPane.showMessageDialog(null, "Sucesso ao editar produto!");
+                        vendaSelecionada = null;
+                        limpar();
+                        cadVendaView.setVisible(false);
+                        consVendasView.setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Erro ao editar produto!");
+                    }
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "O cliente e/ou funcioncionário estão vazios!");
             }
         }
     }

@@ -18,9 +18,9 @@ public class Despesa implements Serializable {
     private String data;
     private String descricao;
     private double valor;
-    
-    public Despesa(){
-    
+
+    public Despesa() {
+
     }
 
     public Despesa(String nome, String data, String descricao, double valor) {
@@ -43,7 +43,12 @@ public class Despesa implements Serializable {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (!nome.equals("")) {
+            this.nome = nome;
+            System.out.println("Sucesso ao setar nome da despesa!");
+        } else {
+            System.out.println("Erro ao setar nome da despesa!");
+        }
     }
 
     public String getData() {
@@ -51,7 +56,12 @@ public class Despesa implements Serializable {
     }
 
     public void setData(String data) {
-        this.data = data;
+        if (!data.equals("")) {
+            this.data = data;
+            System.out.println("Sucesso ao setar data da despesa!");
+        } else {
+            System.out.println("Erro ao setar data da despesa!");
+        }
     }
 
     public String getDescricao() {
@@ -59,7 +69,12 @@ public class Despesa implements Serializable {
     }
 
     public void setDescricao(String descricao) {
-        this.descricao = descricao;
+        if (!descricao.equals("")) {
+            this.descricao = descricao;
+            System.out.println("Sucesso ao setar descrição da despesa!");
+        } else {
+            System.out.println("Erro ao setar descrição da despesa!");
+        }
     }
 
     public double getValor() {
@@ -67,7 +82,12 @@ public class Despesa implements Serializable {
     }
 
     public void setValor(double valor) {
-        this.valor = valor;
+        if (valor >= 0) {
+            this.valor = valor;
+            System.out.println("Sucesso ao setar valor da despesa!");
+        } else {
+            System.out.println("Erro ao setar valor da despesa!");
+        }
     }
 
     @Override

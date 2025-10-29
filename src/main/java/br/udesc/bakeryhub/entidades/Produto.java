@@ -53,7 +53,12 @@ public class Produto implements Serializable {
     }
 
     public void setCustoPontos(int custoPontos) {
-        this.custoPontos = custoPontos;
+        if (custoPontos >= 0) {
+            this.custoPontos = custoPontos;
+            System.out.println("Sucesso ao setar custo de pontos do produto!");
+        } else {
+            System.out.println("Erro ao setar custo de pontos do produto!");
+        }
     }
 
     public String getCodigo() {

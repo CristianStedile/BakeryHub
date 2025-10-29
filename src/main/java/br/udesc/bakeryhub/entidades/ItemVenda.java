@@ -49,7 +49,12 @@ public class ItemVenda {
     }
 
     public void setVenda(Venda venda) {
-        this.venda = venda;
+        if (venda != null) {
+            this.venda = venda;
+            System.out.println("Sucesso ao setar venda!");
+        } else {
+            System.out.println("Erro ao setar venda!");
+        } 
     }
 
     public Produto getProduto() {
@@ -57,7 +62,12 @@ public class ItemVenda {
     }
 
     public void setProduto(Produto produto) {
-        this.produto = produto;
+        if (produto != null) {
+            this.produto = produto;
+            System.out.println("Sucesso ao setar produto!");
+        } else {
+            System.out.println("Erro ao setar produto!");
+        } 
     }
 
     public int getQuantidade() {
@@ -65,7 +75,12 @@ public class ItemVenda {
     }
 
     public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+        if (quantidade > 0) {
+            this.quantidade = quantidade;
+            System.out.println("Sucesso ao setar quantidade!");
+        } else {
+            System.out.println("Erro ao setar quantidade!");
+        } 
     }
 
     public double getPrecoUnitario() {
@@ -73,7 +88,12 @@ public class ItemVenda {
     }
 
     public void setPrecoUnitario(double precoUnitario) {
-        this.precoUnitario = precoUnitario;
+        if (precoUnitario >= 0) {
+            this.precoUnitario = precoUnitario;
+            System.out.println("Sucesso ao setar preço!");
+        } else {
+            System.out.println("Erro ao setar preço!");
+        } 
     }
 
     @Override
