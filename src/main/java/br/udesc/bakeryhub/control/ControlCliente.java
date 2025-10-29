@@ -83,6 +83,7 @@ public class ControlCliente {
         for (Cliente c : daoCliente.listarNome(nome)) {
             modelCliente.inserirCliente(c);
         }
+        modelCliente.fireTableDataChanged();
     }
     
     public void cadastrar() {

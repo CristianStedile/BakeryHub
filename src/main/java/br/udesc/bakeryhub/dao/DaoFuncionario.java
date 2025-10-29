@@ -49,7 +49,7 @@ public class DaoFuncionario extends Dao{
         }
         
         public List<Funcionario> listarNome(String nome) {
-            return em.createQuery("select f from Funcionario f where f.nome = :nome").setParameter("nome", nome).getResultList();
+            return em.createQuery("SELECT f FROM Funcionario f WHERE f.nome LIKE :nome", Funcionario.class).setParameter("nome", "%" + nome + "%").getResultList();
         }
 
         public List<Funcionario> Listar() {

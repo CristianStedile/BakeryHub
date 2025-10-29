@@ -34,7 +34,7 @@ public class ModelProduto extends AbstractTableModel{
                 return "Estoque";
             }
             case 4:{
-                return "Pontos";
+                return "Custo de Pontos";
             }
         }
         return "";
@@ -57,7 +57,7 @@ public class ModelProduto extends AbstractTableModel{
                 return " "+p.getEstoque();
             }
             case 4:{
-                return " "+p.getPontos();
+                return " "+p.getCustoPontos();
             }
         }
         return null;

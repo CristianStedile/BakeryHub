@@ -1,13 +1,14 @@
 package br.udesc.bakeryhub.control;
 
 import br.udesc.bakeryhub.dao.DaoProduto;
-import br.udesc.bakeryhub.entidades.Cliente;
 import br.udesc.bakeryhub.entidades.Produto;
 import br.udesc.bakeryhub.model.ModelProduto;
 import br.udesc.bakeryhub.view.CadastroProdutoView;
 import br.udesc.bakeryhub.view.ConsultaProdutosView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
 public class ControlProduto {
@@ -52,16 +53,18 @@ public class ControlProduto {
                 pesquisar();
             }
         });
-        consProdutoView.btAdicionarEstoque.addActionListener(new ActionListener() {
+        cadProdutoView.rbSim.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                addEstoque();
+                cadProdutoView.rbNao.setSelected(false);
+                cadProdutoView.tfPontos.setEditable(true);
             }
         });
-        consProdutoView.btRemover.addActionListener(new ActionListener() {
+        cadProdutoView.rbNao.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                removerEstoque();
+                cadProdutoView.rbSim.setSelected(false);
+                cadProdutoView.tfPontos.setEditable(false);
             }
         });
     }
@@ -78,12 +81,10 @@ public class ControlProduto {
     public void limpar() {
         cadProdutoView.tfNome.setText("");
         cadProdutoView.tfEstoque.setText("");
-        cadProdutoView.tfPontos.setText("");
         cadProdutoView.tfPromoção.setText("0");
         cadProdutoView.tfPreco.setText("");
         cadProdutoView.tfCodigo.setText("");
         consProdutoView.tfPesquisa.setText("");
-        consProdutoView.tfQuantidade.setText("");
     }
 
     public void carregarProdutos() {
@@ -99,26 +100,7 @@ public class ControlProduto {
         for (Produto p : daoProduto.listarNome(nome)) {
             modelProduto.inserirProduto(p);
         }
-    }
-
-    public void addEstoque() {
-        int linhaSelecionada = consProdutoView.tbProdutos.getSelectedRow();
-        if (linhaSelecionada >= 0) {
-            int novoEstoque = produtoSelecionado.getEstoque() + Integer.parseInt(consProdutoView.tfQuantidade.getText());
-            produtoSelecionado.setEstoque(novoEstoque);
-        } else {
-            JOptionPane.showMessageDialog(null, "Nenhuma linha foi selecionada!");
-        }
-    }
-
-    public void removerEstoque() {
-        int linhaSelecionada = consProdutoView.tbProdutos.getSelectedRow();
-        if (linhaSelecionada >= 0) {
-            int novoEstoque = produtoSelecionado.getEstoque() - Integer.parseInt(consProdutoView.tfQuantidade.getText());
-            produtoSelecionado.setEstoque(novoEstoque);
-        } else {
-            JOptionPane.showMessageDialog(null, "Nenhuma linha foi selecionada!");
-        }
+        modelProduto.fireTableDataChanged();
     }
 
     public void cadastrar() {
@@ -127,9 +109,12 @@ public class ControlProduto {
             int estoque = Integer.parseInt(cadProdutoView.tfEstoque.getText());
             String codigo = cadProdutoView.tfCodigo.getText();
             double preco = Double.parseDouble(cadProdutoView.tfPreco.getText());
-            int pontos = Integer.parseInt(cadProdutoView.tfPontos.getText());
             int promocao = Integer.parseInt(cadProdutoView.tfPromoção.getText());
-            Produto p = new Produto(codigo, nome, estoque, preco, pontos);
+            int custoPontos = 0;
+            if (cadProdutoView.tfPontos.isEditable()) {
+                custoPontos = Integer.parseInt(cadProdutoView.tfPontos.getText());
+            }
+            Produto p = new Produto(codigo, nome, estoque, preco, custoPontos);
             if (promocao > 0) {
                 p.setPromocao(promocao);
             }
@@ -143,9 +128,11 @@ public class ControlProduto {
             produtoSelecionado.setNome(cadProdutoView.tfNome.getText());
             produtoSelecionado.setCodigo(cadProdutoView.tfCodigo.getText());
             produtoSelecionado.setEstoque(Integer.parseInt(cadProdutoView.tfEstoque.getText()));
-            produtoSelecionado.setPontos(Integer.parseInt(cadProdutoView.tfPontos.getText()));
             produtoSelecionado.setPreco(Double.parseDouble(cadProdutoView.tfPreco.getText()));
             produtoSelecionado.setPromocao(Integer.parseInt(cadProdutoView.tfPromoção.getText()));
+            if (cadProdutoView.rbSim.isSelected()) {
+                produtoSelecionado.setCustoPontos(Integer.parseInt(cadProdutoView.tfPontos.getText()));
+            }
             if (JOptionPane.showConfirmDialog(null, "Deseja mesmo editar o produto?") == JOptionPane.YES_OPTION) {
                 if (daoProduto.editar(produtoSelecionado)) {
                     JOptionPane.showMessageDialog(null, "Sucesso ao editar produto!");
@@ -164,12 +151,20 @@ public class ControlProduto {
         int linhaSelecionada = consProdutoView.tbProdutos.getSelectedRow();
         if (linhaSelecionada >= 0) {
             if (JOptionPane.showConfirmDialog(null, "Deseja mesmo editar o produto?") == JOptionPane.YES_OPTION) {
-                produtoSelecionado.setNome(cadProdutoView.tfNome.getText());
-                produtoSelecionado.setCodigo(cadProdutoView.tfCodigo.getText());
-                produtoSelecionado.setEstoque(Integer.parseInt(cadProdutoView.tfEstoque.getText()));
-                produtoSelecionado.setPontos(Integer.parseInt(cadProdutoView.tfPontos.getText()));
-                produtoSelecionado.setPreco(Double.parseDouble(cadProdutoView.tfPreco.getText()));
-                produtoSelecionado.setPromocao(Integer.parseInt(cadProdutoView.tfPromoção.getText()));
+                produtoSelecionado = modelProduto.getProduto(linhaSelecionada);
+                cadProdutoView.tfNome.setText(produtoSelecionado.getNome());
+                cadProdutoView.tfCodigo.setText(String.valueOf(produtoSelecionado.getCodigo()));
+                cadProdutoView.tfEstoque.setText(String.valueOf(produtoSelecionado.getEstoque()));
+                cadProdutoView.tfPreco.setText(String.valueOf(produtoSelecionado.getPreco()));
+                cadProdutoView.tfPromoção.setText(String.valueOf(produtoSelecionado.getPromocao()));
+                if (produtoSelecionado.getCustoPontos() > 0) {
+                    cadProdutoView.rbSim.setSelected(true);
+                    cadProdutoView.tfPontos.setEditable(true);
+                    cadProdutoView.tfPontos.setText(String.valueOf(produtoSelecionado.getCustoPontos()));
+                }else{
+                    cadProdutoView.rbNao.setEnabled(true);
+                    cadProdutoView.tfPontos.setEditable(false);
+                }
                 consProdutoView.setVisible(false);
                 cadProdutoView.setVisible(true);
             }

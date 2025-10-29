@@ -81,11 +81,16 @@ public class ControlDespesa {
     }
 
     public void filtrar() {
-        modelDespesa.limpar();
-        int ano = Integer.parseInt(consDespesaView.tfAno.getText());
-        int mes = Integer.parseInt(consDespesaView.tfMes.getText());
-        for (Despesa d : daoDespesa.ListarMesAno(mes, ano)) {
-            modelDespesa.inserirDespesa(d);
+        if (!consDespesaView.tfAno.getText().equals("") && !consDespesaView.tfMes.getText().equals("")) {
+            modelDespesa.limpar();
+            int ano = Integer.parseInt(consDespesaView.tfAno.getText());
+            int mes = Integer.parseInt(consDespesaView.tfMes.getText());
+            for (Despesa d : daoDespesa.ListarMesAno(mes, ano)) {
+                modelDespesa.inserirDespesa(d);
+            }
+            modelDespesa.fireTableDataChanged();
+        } else {
+            carregarDespesas();
         }
     }
 

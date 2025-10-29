@@ -49,7 +49,7 @@ public class DaoCliente extends Dao {
     }
 
     public List<Cliente> listarNome(String nome) {
-        return em.createQuery("select c from Cliente c where c.nome = :nome").setParameter("nome", nome).getResultList();
+        return em.createQuery("SELECT c FROM Cliente c WHERE c.nome LIKE :nome", Cliente.class).setParameter("nome", "%" + nome + "%").getResultList();
     }
 
     public List<Cliente> Listar() {

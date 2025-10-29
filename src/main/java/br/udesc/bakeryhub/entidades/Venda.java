@@ -3,6 +3,7 @@ package br.udesc.bakeryhub.entidades;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,9 +22,10 @@ public class Venda implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String data;
+    private double valor;
     @Column(name = "forma_pagamento")
     private String formaPagamento;
-    private boolean pago;
+    @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemVenda> itens = new ArrayList();
     @ManyToOne
     @JoinColumn(name = "id_cliente")
@@ -35,12 +38,12 @@ public class Venda implements Serializable {
 
     }
 
-    public Venda(String data, String formaPagamento, boolean pago, Cliente cliente, Funcionario funcionario) {
+    public Venda(String data, String formaPagamento, double valor, Cliente cliente, Funcionario funcionario) {
         this.data = data;
         this.formaPagamento = formaPagamento;
-        this.pago = pago;
         this.funcionario = funcionario;
         this.cliente = cliente;
+        this.valor = valor;
     }
 
     public Cliente getCliente() {
@@ -58,19 +61,13 @@ public class Venda implements Serializable {
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
     }
-    
 
-    public void addItem(Produto p, int quantidade) {
-        ItemVenda item = new ItemVenda(this, p, quantidade, p.getPreco());
-        itens.add(item);
+    public void addItem(ItemVenda iv) {
+        itens.add(iv);
     }
 
-    public void removerItem(Produto p) {
-        for (ItemVenda it : itens) {
-            if (it.getProduto().equals(p)) {
-                itens.remove(it);
-            }
-        }
+    public void removerItem(ItemVenda iv) {
+        itens.remove(iv);
     }
 
     public double getTotal() {
@@ -85,17 +82,12 @@ public class Venda implements Serializable {
         return itens;
     }
 
-    public boolean isPago() {
-        return pago;
+    public double getValor() {
+        return valor;
     }
 
-    public void setPago(boolean pago) {
-        if (pago == true || pago == false) {
-            this.pago = pago;
-            System.out.println("Sucesso ao setar status do pagamento da venda!");
-        } else {
-            System.out.println("Erro ao setar status do pagamento da venda!");
-        }
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     public int getId() {
@@ -139,7 +131,7 @@ public class Venda implements Serializable {
 
     @Override
     public String toString() {
-        return "Venda{" + "id=" + id + ", data=" + data + ", formaPagamento=" + formaPagamento + ", pago=" + pago + ", itens=" + itens + ", cliente=" + cliente + ", funcionario=" + funcionario + '}';
+        return "Venda{" + "id=" + id + ", data=" + data + ", valor=" + valor + ", formaPagamento=" + formaPagamento + ", itens=" + itens + ", cliente=" + cliente + ", funcionario=" + funcionario + '}';
     }
 
 }

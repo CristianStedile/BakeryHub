@@ -3,6 +3,7 @@ package br.udesc.bakeryhub.dao;
 import br.udesc.bakeryhub.entidades.Despesa;
 import java.util.List;
 import javax.persistence.PersistenceException;
+import javax.persistence.TypedQuery;
 
 public class DaoDespesa extends Dao {
 
@@ -49,7 +50,10 @@ public class DaoDespesa extends Dao {
     }
 
     public List<Despesa> ListarMesAno(int mes, int ano) {
-        return em.createQuery("SELECT d FROM Despesa d WHERE FUNCTION('MONTH', d.data) = :mes AND FUNCTION('YEAR', d.data) = :ano", Despesa.class).setParameter("mes", mes).setParameter("ano", ano).getResultList();
+        TypedQuery<Despesa> query = em.createQuery("SELECT d FROM Despesa d WHERE FUNCTION('MONTH', d.data) = :mes AND FUNCTION('YEAR', d.data) = :ano", Despesa.class);
+        query.setParameter("mes", mes);
+        query.setParameter("ano", ano);
+        return query.getResultList();
     }
 
     public List<Despesa> Listar() {

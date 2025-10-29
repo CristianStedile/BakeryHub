@@ -1,6 +1,7 @@
 package br.udesc.bakeryhub.entidades;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,19 +19,20 @@ public class Produto implements Serializable {
     private String nome;
     private int estoque;
     private double preco;
-    private int pontos;
+    @Column(name = "custo_pontos")
+    private int custoPontos;
     private int promocao;
     
     public Produto(){
     
     }
 
-    public Produto(String codigo, String nome, int estoque, double preco, int pontos) {
+    public Produto(String codigo, String nome, int estoque, double preco, int custoPontos) {
         this.codigo = codigo;
         this.nome = nome;
         this.estoque = estoque;
         this.preco = preco;
-        this.pontos = pontos;
+        this.custoPontos = custoPontos;
     }
 
     public int getId() {
@@ -44,6 +46,14 @@ public class Produto implements Serializable {
         } else {
             System.out.println("Erro ao setar id do produto!");
         }
+    }
+
+    public int getCustoPontos() {
+        return custoPontos;
+    }
+
+    public void setCustoPontos(int custoPontos) {
+        this.custoPontos = custoPontos;
     }
 
     public String getCodigo() {
@@ -77,7 +87,7 @@ public class Produto implements Serializable {
     }
 
     public void setEstoque(int estoque) {
-        if (estoque > 0) {
+        if (estoque >= 0) {
             this.estoque = estoque;
             System.out.println("Sucesso ao setar produto!");
         } else {
@@ -87,7 +97,8 @@ public class Produto implements Serializable {
 
     public double getPreco() {
         if(getPromocao() > 0){
-            return preco-(promocao*preco);
+            double promocao = this.promocao;
+            return preco-((promocao/100)*preco);
         }else{
             return preco;
         }
@@ -99,19 +110,6 @@ public class Produto implements Serializable {
             System.out.println("Sucesso ao setar preço do produto!");
         } else {
             System.out.println("Erro ao setar preço do produto!");
-        }
-    }
-
-    public int getPontos() {
-        return pontos;
-    }
-
-    public void setPontos(int pontos) {
-        if (pontos > 0) {
-            this.pontos = pontos;
-            System.out.println("Sucesso ao setar pontos do produto!");
-        } else {
-            System.out.println("Erro ao setar pontos do produto!");
         }
     }
 
@@ -130,7 +128,8 @@ public class Produto implements Serializable {
 
     @Override
     public String toString() {
-        return "Produto{" + "id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", estoque=" + estoque + ", preco=" + preco + ", pontos=" + pontos + ", promocao=" + promocao + '}';
+        return "Produto{" + "id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", estoque=" + estoque + ", preco=" + preco + ", custoPontos=" + custoPontos + ", promocao=" + promocao + '}';
     }
 
+   
 }

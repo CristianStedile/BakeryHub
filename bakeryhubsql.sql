@@ -38,7 +38,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (3,'bruna','131.232.312-32','rua xv',10),(4,'luana','222.313.123-12','rua xv',10);
+INSERT INTO `cliente` VALUES (3,'bruna','131.232.312-32','rua xv',10),(4,'luana','222.313.123-12','rua xv',4);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +113,7 @@ CREATE TABLE `item_venda` (
   `quantidade` int DEFAULT NULL,
   `preco_unitario` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,6 +122,7 @@ CREATE TABLE `item_venda` (
 
 LOCK TABLES `item_venda` WRITE;
 /*!40000 ALTER TABLE `item_venda` DISABLE KEYS */;
+INSERT INTO `item_venda` VALUES (2,9,151,10,1.00);
 /*!40000 ALTER TABLE `item_venda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,10 +164,10 @@ CREATE TABLE `produto` (
   `nome` varchar(45) DEFAULT NULL,
   `estoque` int DEFAULT NULL,
   `preco` decimal(10,2) DEFAULT NULL,
-  `pontos` int DEFAULT NULL,
+  `custo_pontos` int DEFAULT NULL,
   `promocao` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=152 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,6 +176,7 @@ CREATE TABLE `produto` (
 
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
+INSERT INTO `produto` VALUES (51,'1','maçã',0,20.00,0,0),(101,'2','banana',0,20.00,5,0),(151,'3','uva',34,2.00,5,50);
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -198,7 +200,7 @@ CREATE TABLE `sequence` (
 
 LOCK TABLES `sequence` WRITE;
 /*!40000 ALTER TABLE `sequence` DISABLE KEYS */;
-INSERT INTO `sequence` VALUES ('SEQ_GEN',0);
+INSERT INTO `sequence` VALUES ('SEQ_GEN',200);
 /*!40000 ALTER TABLE `sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,11 +215,11 @@ CREATE TABLE `venda` (
   `id` int NOT NULL AUTO_INCREMENT,
   `data` varchar(10) DEFAULT NULL,
   `forma_pagamento` varchar(45) DEFAULT NULL,
-  `pago` tinyint DEFAULT NULL,
   `id_cliente` int DEFAULT NULL,
   `id_funcionario` int DEFAULT NULL,
+  `valor` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,6 +228,7 @@ CREATE TABLE `venda` (
 
 LOCK TABLES `venda` WRITE;
 /*!40000 ALTER TABLE `venda` DISABLE KEYS */;
+INSERT INTO `venda` VALUES (9,'2000-12-13','Dinheiro',4,2,10);
 /*!40000 ALTER TABLE `venda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,4 +267,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-23 19:40:13
+-- Dump completed on 2025-10-28 21:41:04

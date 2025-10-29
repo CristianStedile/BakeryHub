@@ -27,6 +27,7 @@ public class ControlPrincipal {
         controlFuncionario = new ControlFuncionario();
         controlVenda = new ControlVenda();
         controlDespesa = new ControlDespesa();
+        controlProduto = new ControlProduto();
         tInicial = new InicialView();
         inicializarComponentes();
     }
@@ -119,6 +120,18 @@ public class ControlPrincipal {
                 controlDespesa.cadastrarDespesa();
             }
         });
+        tInicial.miCadastroProduto.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               controlProduto.cadastrarProduto();
+            }
+        });
+        tInicial.miConsultaProduto.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controlProduto.consultarProdutos();
+            }
+        });
         tInicial.miConsultaDespesa.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -131,7 +144,18 @@ public class ControlPrincipal {
                 login();
             }
         });
-
+        tInicial.miConsultaVenda.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controlVenda.consultarVendas();
+            }
+        });
+        tInicial.miCadastroVenda.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controlVenda.cadastrarVenda();
+            }
+        });
     }
 
     public void login() {

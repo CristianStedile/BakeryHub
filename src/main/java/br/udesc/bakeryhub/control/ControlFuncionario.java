@@ -146,6 +146,7 @@ public class ControlFuncionario {
         for (Funcionario f : daoFuncionario.listarNome(nome)) {
             modelFuncionario.inserirFuncionario(f);
         }
+        modelFuncionario.fireTableDataChanged();
     }
     
     public void limpar() {

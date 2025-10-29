@@ -40,7 +40,7 @@ public class ModelVendaProdutos extends AbstractTableModel {
         ItemVenda iv = itens.get(rowIndex);
         switch (columnIndex) {
             case 0: {
-                return " " + iv.getProduto();
+                return " " + iv.getProduto().getNome();
             }
             case 1: {
                 return " " + iv.getPrecoUnitario();
@@ -55,8 +55,12 @@ public class ModelVendaProdutos extends AbstractTableModel {
     public void limpar() {
         itens.clear();
     }
+    
+    public List<ItemVenda> getItens(){
+        return this.itens;
+    }
 
-    public ItemVenda getItens(int rowIndex) {
+    public ItemVenda getItem(int rowIndex) {
         return itens.get(rowIndex);
     }
 

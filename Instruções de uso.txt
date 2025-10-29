@@ -1,7 +1,1 @@
-Instruções
-
-1. Abra o mysql workbench e crie um schema chamado "bakeryhub"
-2. Execute o script do banco de dados com o nome "bakeryhub.sql"
-3. Abra o projeto no NetBeans e execute
-
-observação: caso de erro provavelmente é por conta das informações diferentes do seu mysql, em caso de erro crie novamente a persistence unit e adicione as entidades. O driver usado do mysql conector está na pasta do projeto
+Link do projeto: https://github.com/CristianStedile/BakeryHub

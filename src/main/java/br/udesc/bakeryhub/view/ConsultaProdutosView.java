@@ -35,10 +35,6 @@ public class ConsultaProdutosView extends javax.swing.JFrame {
         btPesquisar = new javax.swing.JButton();
         btEditar = new javax.swing.JButton();
         btRemover = new javax.swing.JButton();
-        btRemoverEstoque = new javax.swing.JButton();
-        btAdicionarEstoque = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        tfQuantidade = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consulta de Produtos");
@@ -70,31 +66,14 @@ public class ConsultaProdutosView extends javax.swing.JFrame {
         btRemover.setBackground(new java.awt.Color(255, 51, 51));
         btRemover.setText("Excluir");
 
-        btRemoverEstoque.setBackground(new java.awt.Color(0, 204, 255));
-        btRemoverEstoque.setText("Remover estoque");
-
-        btAdicionarEstoque.setBackground(new java.awt.Color(0, 204, 255));
-        btAdicionarEstoque.setText("Adicionar estoque");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setText("Quantidade ");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btRemoverEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btAdicionarEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btEditar))
@@ -128,10 +107,6 @@ public class ConsultaProdutosView extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btAdicionarEstoque)
-                    .addComponent(btRemoverEstoque)
-                    .addComponent(jLabel3)
-                    .addComponent(tfQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btEditar)
                     .addComponent(btRemover))
                 .addContainerGap(69, Short.MAX_VALUE))
@@ -143,18 +118,14 @@ public class ConsultaProdutosView extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btAdicionarEstoque;
     public javax.swing.JButton btEditar;
     public javax.swing.JButton btPesquisar;
     public javax.swing.JButton btRemover;
-    public javax.swing.JButton btRemoverEstoque;
     private java.awt.Canvas canvas1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable tbProdutos;
     public javax.swing.JTextField tfPesquisa;
-    public javax.swing.JTextField tfQuantidade;
     // End of variables declaration//GEN-END:variables
 }

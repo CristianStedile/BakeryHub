@@ -49,7 +49,7 @@ public class DaoProduto extends Dao {
     }
 
     public List<Produto> listarNome(String nome) {
-        return em.createQuery("select p from Produto p where p.nome = :nome").setParameter("nome", nome).getResultList();
+        return em.createQuery("SELECT p FROM Produto p WHERE LOWER(p.nome) LIKE LOWER(:nome)", Produto.class).setParameter("nome", "%" + nome + "%").getResultList();
     }
 
     public List<Produto> Listar() {

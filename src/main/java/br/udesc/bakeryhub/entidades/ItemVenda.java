@@ -1,5 +1,6 @@
 package br.udesc.bakeryhub.entidades;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,14 +26,15 @@ public class ItemVenda {
     private Produto produto;
 
     private int quantidade;
+    @Column(name = "preco_unitario")
     private double precoUnitario;
 
     public ItemVenda() {
         
     }
 
-    public ItemVenda(Venda venda, Produto produto, int quantidade, double precoUnitario) {
-        this.venda = venda;
+    public ItemVenda(Produto produto, int quantidade, double precoUnitario) {
+        this.venda = null;
         this.produto = produto;
         this.quantidade = quantidade;
         this.precoUnitario = precoUnitario;
@@ -76,7 +78,7 @@ public class ItemVenda {
 
     @Override
     public String toString() {
-        return "ItemVenda{" + "id=" + id + ", venda=" + venda + ", produto=" + produto + ", quantidade=" + quantidade + ", precoUnitario=" + precoUnitario + '}';
+        return "ItemVenda{" + "id=" + id + ", quantidade=" + quantidade + ", precoUnitario=" + precoUnitario + '}';
     }
 
 }
