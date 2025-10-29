@@ -16,7 +16,7 @@ public class ModelVenda extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return 5;
     }
 
     @Override
@@ -29,15 +29,12 @@ public class ModelVenda extends AbstractTableModel {
                 return "Forma de Pagamento";
             }
             case 2: {
-                return "Status";
-            }
-            case 3: {
                 return "Funcionário";
             }
-            case 4: {
+            case 3: {
                 return "Cliente";
             }
-            case 5: {
+            case 4: {
                 return "Valor Total";
             }
         }
@@ -55,16 +52,13 @@ public class ModelVenda extends AbstractTableModel {
                 return " " + v.getFormaPagamento();
             }
             case 2: {
-                return " " + v.isPago();
+                return " " + v.getFuncionario().getNome();
             }
             case 3: {
-                return " " + v.getFuncionario();
+                return " " + v.getCliente().getNome();
             }
             case 4: {
-                return " " + v.getCliente();
-            }
-            case 5: {
-                return " " + v.getTotal();
+                return " " + v.getValor();
             }
         }
         return null;
